@@ -6,7 +6,8 @@
 
 body{
     /*background-color: #d0d3d4;*/
-    background: linear-gradient(to top, #a9e6d5, green); /* Gradient from blue to green */
+    /*background: linear-gradient(to top, #a9e6d5, green);  Gradient from blue to green */
+    background-color: #e0f7fa;
     margin: 0; /* Optional: Remove default margin */
     height: 100vh; /* Optional: Ensure the gradient covers the entire viewport height */
     

@@ -17,7 +17,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className='fullpage'>
       <header>
         <h1>CareCircle</h1>
       </header>
@@ -28,8 +28,8 @@ const Home = () => {
         <p>Together, we can make a difference in the lives of those we care about.</p>
       </div>
       <div className="form-toggle">
-        <button onClick={() => setCurrentForm('login')}>Log In</button>
-        <button onClick={() => setCurrentForm('register')}>Register</button>
+        <button onClick={() => setCurrentForm('register')}>Create your circle</button>
+        <button onClick={() => setCurrentForm('login')}>Enter your circle</button>
         <button onClick={() => setCurrentForm('join')}>Join Existing Circle</button>
       </div>
       <div className="form-container">

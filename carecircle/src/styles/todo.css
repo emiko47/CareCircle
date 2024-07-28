@@ -112,3 +112,9 @@ h1{
     transition: 0.1 ease-in;
     cursor: pointer;
 }
+
+input[type='checkbox'] {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+  }

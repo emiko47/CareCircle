@@ -92,11 +92,13 @@ const CrossyCare = () => {
 
             // Hide the next button and verdict
             document.getElementById('next').style.display = 'none';
+            document.getElementById('startover').style.display = 'block';
             document.getElementById('verdict').style.display = 'none';
         } else {
             // End of game
             document.getElementById('Questioncard').style.display = 'none';
-            document.getElementById('results').style.display = 'block';
+            document.getElementById('results').style.display = 'flex';
+            document.getElementById('results-startover').style.display = 'block';
 
             if (score < 5) {
                 document.getElementById('fail').style.display = 'block';

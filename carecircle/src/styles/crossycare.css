@@ -78,6 +78,7 @@
     width: 150px;
     margin-right: 2px;
     cursor: pointer;
+    margin-top: 5px;
 }
 
 .controls{
@@ -133,6 +134,8 @@
 #results{
     display:none;
     text-align: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 #pass{

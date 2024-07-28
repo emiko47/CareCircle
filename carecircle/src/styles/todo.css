@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    /*background-color: #d0d3d4;*/
+    background: linear-gradient(to top, #a9e6d5, green); /* Gradient from blue to green */
+    margin: 0; /* Optional: Remove default margin */
+    height: 100vh; /* Optional: Ensure the gradient covers the entire viewport height */
+    
+}
+
+.ToDoWrapper{
+    padding: 2rem;
+    margin-top: 5rem;
+    background: #4682B4;
+    /*width: 65%;*/
+    border: 5px solid #2c3e50;
+    
+}
+
+#full{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.ToDoForm{
+    width: 100%;
+    margin-bottom: 1rem;
+    
+}
+
+.todo-input::placeholder{
+    color: #000;
+}
+
+.todo-btn{
+    padding: 0.55rem;
+    background: #87CEFA;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    outline: none;
+}
+
+.todo-input{
+    outline:none;
+    background: none;
+    border: 1px solid #87CEFA;
+    padding: 0.47rem 1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    width: 300px;
+    color: #000;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    
+}
+
+.Todo{
+    color: #fff;
+    background: #87cefa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    height: 30px;
+    cursor: pointer;
+}
+
+.Todo:hover{
+    box-shadow: 0 0 20px #87cefa;
+    transform: scale(1.0075);
+    transition: 0.3 ease-in;
+}
+
+h1{
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-size: 1.75rem;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.completed{
+    color: #000;
+    text-decoration: line-through;
+    cursor: pointer;
+}
+
+.edit-icon{
+    cursor: pointer;
+}
+
+.delete-icon{
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.delete-icon:hover {
+    color: red;
+    transition: 0.1 ease-in;
+    cursor: pointer;
+}

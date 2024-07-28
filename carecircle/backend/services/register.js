@@ -1,10 +1,8 @@
-// Import necessary modules from AWS SDK v3
 import { DynamoDBClient, GetItemCommand, PutItemCommand } from '@aws-sdk/client-dynamodb';
 import { buildResponse } from '../utils/util.js';
 import bcrypt from 'bcryptjs';
 const { hashSync } = bcrypt;
 
-// Initialize DynamoDB Client with a specific region
 const ddb = new DynamoDBClient({ region: 'us-east-1' });
 const userTable = 'CareCircle';
 
@@ -14,7 +12,7 @@ async function register(userInfo) {
         return buildResponse(401, { message: 'Missing required fields' });
     }
 
-    const dynamoUser = await getUser(username);
+    const dynamoUser = await getUser(username.toLowerCase().trim());
     if (dynamoUser && dynamoUser.username) {
         return buildResponse(401, { message: 'Username already exists! Please choose a different username.' });
     }
@@ -39,15 +37,23 @@ async function getUser(username) {
     const params = {
         TableName: userTable,
         Key: {
-            username: { S: username }  // DynamoDB expects a type specification for the attribute
+            username: { S: username }
         }
     };
 
     try {
         const data = await ddb.send(new GetItemCommand(params));
-        return data.Item;
+        if (!data.Item) {
+            return null;
+        }
+        return {
+            email: data.Item.email.S,
+            password: data.Item.password.S,
+            name: data.Item.name.S,
+            username: data.Item.username.S,
+        };
     } catch (error) {
-        console.error('There is an error in getUser in register: ', error);
+        console.error('There is an error in getUser: ', error);
         return null;
     }
 }

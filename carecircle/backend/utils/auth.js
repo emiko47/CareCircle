@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken'; // Correct way to import CommonJS modules in ES modules
+import jwt from 'jsonwebtoken';
 const { sign, verify } = jwt;
 
 function generateToken(userInfo) {
@@ -7,15 +7,30 @@ function generateToken(userInfo) {
     }
 
     // Ensure JWT_SECRET is set in your environment variables
-    const token = sign(userInfo, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const token = sign(
+        { username: userInfo.username, email: userInfo.email },
+        process.env.JWT_SECRET,
+        { expiresIn: '1h' }
+    );
     return token;
 }
 
-function verifyToken(username, token) {
+function verifyToken(user, token) {
     try {
-        // Synchronous verification
+        // Extract username from the user object
+        const username = user.username;
+
+        // Log the value and type of username
+        console.log('Verifying token for username:', username);
+        console.log('Type of username:', typeof username);
+
+        // Ensure username is a string and not empty
+        if (typeof username !== 'string' || !username) {
+            throw new TypeError('username must be a non-empty string');
+        }
+
         const decoded = verify(token, process.env.JWT_SECRET);
-        if (decoded.username !== username) {
+        if (decoded.username.toLowerCase().trim() !== username.toLowerCase().trim()) {
             return {
                 verified: false,
                 message: 'Invalid user'
@@ -27,6 +42,7 @@ function verifyToken(username, token) {
             message: 'Valid token'
         };
     } catch (err) {
+        console.error('Error verifying token:', err);
         return {
             verified: false,
             message: 'Invalid token'

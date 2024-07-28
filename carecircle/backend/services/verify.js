@@ -2,7 +2,7 @@ import { buildResponse } from '../utils/util.js';
 import { verifyToken } from '../utils/auth.js';
 
 function verify(requestBody) {
-    if (!requestBody.user || !requestBody.user.username || !requestBody.user.email || !requestBody.user.token) {
+    if (!requestBody.user || !requestBody.user.username || !requestBody.user.email || !requestBody.token) {
         return buildResponse(401, { verified: false, message: 'Incorrect request body' });
     }
 

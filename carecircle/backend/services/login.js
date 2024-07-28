@@ -1,17 +1,16 @@
-// Import necessary modules from AWS SDK v3
 import { DynamoDBClient, GetItemCommand } from '@aws-sdk/client-dynamodb';
 import { buildResponse } from '../utils/util.js';
 import bcrypt from 'bcryptjs';
 import { generateToken } from '../utils/auth.js';
 const { compareSync } = bcrypt;
-// Initialize DynamoDB Client with a specific region
+
 const ddbClient = new DynamoDBClient({ region: 'us-east-1' });
 const userTable = 'CareCircle';
 
 async function login(user) {
-    const username = username.toLowerCase().trim();
+    const username = user.username.toLowerCase().trim();
     const password = user.password;
-    if (!user || !username || !password) {
+    if (!username || !password) {
         return buildResponse(401, { message: 'Username and Password are required' });
     }
 
@@ -44,15 +43,24 @@ async function getUser(username) {
     const params = {
         TableName: userTable,
         Key: {
-            username: { S: username }  // Assuming 'username' is a string attribute
+            username: { S: username }
         }
     };
 
     try {
         const data = await ddbClient.send(new GetItemCommand(params));
-        return data.Item;
+        if (!data.Item) {
+            return null;
+        }
+        return {
+            email: data.Item.email.S,
+            password: data.Item.password.S,
+            name: data.Item.name.S,
+            username: data.Item.username.S,
+        };
     } catch (error) {
         console.error('There is an error in getUser: ', error);
+        return null;
     }
 }
 

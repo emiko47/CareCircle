@@ -1,11 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Card, CardHeader, CardBody, CardFooter, Stack, IconButton, Divider } from '@chakra-ui/react'
+import React, { useEffect, useState } from 'react';
+import { Card, IconButton } from '@chakra-ui/react'
 // import { Avatar, AvatarBadge } from '@chakra-ui/react'
 import Avatar from 'react-avatar';
-import { Button, Heading, Menu, MenuButton, MenuItem, MenuList, Progress} from '@chakra-ui/react'
+import { Button, Heading, Menu, MenuButton, MenuItem, MenuList} from '@chakra-ui/react'
 import { EditIcon } from '@chakra-ui/icons';
-
-
 
 import {
   Table,
@@ -87,13 +85,11 @@ const Treatment = () => {
     }
 
     return (
-      <div className ='fullpage' style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyItems: 'center'}}>
-        <header>
-          <h1>Treatment</h1>
-        </header>
+      <div className ='fullpage' style={{ display: 'flex', flexDirection: 'column', justifyItems: 'center'}}>
+
         {/* patient card */}
 
-        <div className='treatment-card' style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', margin: 'auto', width: 'auto', paddingBottom: '20px'}}>
+        <div className='treatment-card' style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: 'auto', paddingBottom: '20px'}}>
           <Heading as="h1" size="2xl" style={{margin: '20px 0px 0px 0px', color: 'black', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)'}}>Patient Information</Heading>
           <hr style={{borderColor: '#605c5c', width: '20vw', marginBottom: '30px'}} />
           <Card direction={{base: 'column', sm: 'row'}}
@@ -187,7 +183,7 @@ const Treatment = () => {
         <hr style={{width: '80vw'}} />
 
         <div className='condition-section' style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
-          <div className='condition-card' style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', margin: 'auto', width: '55vw'}}>
+          <div className='condition-card' style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '55vw'}}>
             <Heading as="h2" size="l" style={{margin: '20px', color: '#70C0F9', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)'}}>Condition Information</Heading>
 
             <div className='condition-info'>
@@ -220,7 +216,7 @@ const Treatment = () => {
       
           </div>
 
-          <div className='health-metrics-info' style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', margin: 'auto', width: 'auto'}}>
+          <div className='health-metrics-info' style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: 'auto'}}>
               <Heading as="h2" size="l" style={{margin: '20px', color: '#70C0F9', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)'}}>Health Metrics</Heading>
 
               <div className='metrics-info' style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
@@ -247,7 +243,7 @@ const Treatment = () => {
         <hr style={{width: '80vw'}} />
         
         {/* past treatments */}
-        <div className='immunization records' style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', margin: 'auto'}}>
+        <div className='immunization records' style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
           <Heading as="h2" size="l" style={{margin: '20px', color: '#70C0F9', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)'}}>Immunization Records</Heading>
 
           <div className='immunization-info' style={{width: '80vw'}}>

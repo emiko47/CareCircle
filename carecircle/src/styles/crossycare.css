@@ -1,0 +1,160 @@
+.fullpage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    background-color: #E0F7FA;
+    height: 100vh;
+}
+.title{
+    font-size: 50px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+#welcome{
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+#ogpic{
+    width:60%;
+    height: auto;
+}
+
+#button{
+    width: 150px;
+    height: 70px;
+    background-color: gray;
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
+#Questioncard{
+    display: flex;
+    flex-direction: column;
+    display:none;
+    align-items: center;
+    text-align: center;
+    margin-top: 40px;
+}
+
+#where{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#acquestion{
+    font-size: 20px;
+}
+
+#verdict{
+    display: none;
+    width: 100%;
+    color: white;
+}
+
+#next, #startover, #results-startover {
+    display: none;
+    background-color: gray;
+    color: white;
+    font-weight: bold;
+    width: 150px;
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+.controls{
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.tiles{
+    display:flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    align-items: center;
+}
+
+.top, .bottom {
+    display: flex;
+    flex-direction: row;
+}
+
+#tile1, #tile2, #tile3, #tile4 {
+    width: 400px;
+    height: 100px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+#tile1 {
+    background-color: rgb(0, 123, 255);
+    margin-right: 10px;
+}
+
+#tile2 {
+    background-color: rgb(218, 34, 34);
+    margin-left: 10px;
+}
+
+#tile3 {
+    background-color: green;
+    margin-right: 10px;
+}
+
+#tile4 {
+    background-color: orange;
+    margin-left: 10px;
+}
+
+#results{
+    display:none;
+    text-align: center;
+}
+
+#pass{
+    display: none;
+    font-weight: bold;
+}
+
+#fail{
+    display: none;
+}
+
+#perfect{
+    display: none;
+}
+
+/* Hover effects */
+#tile1:hover, #tile2:hover, #tile3:hover, #tile4:hover,
+#next:hover, #startover:hover, #results-startover:hover {
+    opacity: 0.8;
+}
+
+#button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}

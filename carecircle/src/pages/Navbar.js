@@ -1,13 +1,20 @@
-import React, { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { isLoggedIn, removeUserSession } from './AuthServices';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    removeUserSession(); // Remove user session
+    navigate('/'); // Redirect to the home page or login page
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar__container">
         <Link to="/" className="navbar__logo">
-        <img src="./assets/cc.jpeg" alt="dey play" id = "pikcho"/>
+          <img src="./assets/cc.jpeg" alt="CareCircle Logo" id="pikcho" />
           CareCircle
         </Link>
         <ul className="navbar__menu">
@@ -26,6 +33,13 @@ const Navbar = () => {
           <li className="navbar__item">
             <Link to="/Resources" className="navbar__links">Resources</Link>
           </li>
+          {isLoggedIn() && (
+            <li className="navbar__item">
+              <button onClick={handleLogout} className="navbar__links navbar__logout">
+                Logout
+              </button>
+            </li>
+          )}
         </ul>
       </div>
     </nav>
@@ -33,5 +47,3 @@ const Navbar = () => {
 }
 
 export default Navbar;
-
-  

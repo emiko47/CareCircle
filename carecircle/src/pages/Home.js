@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/home.css';
-import { setUserSession } from './AuthServices';
+import { isLoggedIn, setUserSession } from './AuthServices';
 
 const Home = () => {
   const [currentForm, setCurrentForm] = useState('login');
@@ -27,14 +27,18 @@ const Home = () => {
         <p>Start by creating a new CareCircle or joining an existing one.</p>
         <p>Together, we can make a difference in the lives of those we care about.</p>
       </div>
-      <div className="form-toggle">
-        <button onClick={() => setCurrentForm('register')}>Create your circle</button>
-        <button onClick={() => setCurrentForm('login')}>Enter your circle</button>
-        <button onClick={() => setCurrentForm('join')}>Join Existing Circle</button>
-      </div>
-      <div className="form-container">
-        {renderForm()}
-      </div>
+      {!isLoggedIn() && (
+        <>
+          <div className="form-toggle">
+            <button onClick={() => setCurrentForm('register')}>Create your circle</button>
+            <button onClick={() => setCurrentForm('login')}>Enter your circle</button>
+            <button onClick={() => setCurrentForm('join')}>Join Existing Circle</button>
+          </div>
+          <div className="form-container">
+            {renderForm()}
+          </div>
+        </>
+      )}
       <div>
         <p>Need help?</p>
         <button>Contact Support</button>
@@ -64,7 +68,7 @@ const LoginForm = () => {
       if (response.ok) {
         setUserSession(data.user, data.token); // Save user session
         setMessage('Login successful!');
-        // Redirect or update state as needed
+        // Optionally, redirect or update state as needed
       } else {
         setMessage(data.message || 'Login failed. Please check your credentials.');
       }
@@ -106,7 +110,7 @@ const RegisterForm = () => {
       const data = await response.json();
       if (response.ok) {
         setMessage('Registration successful!');
-        // Redirect or update state as needed
+        // Optionally, redirect or update state as needed
       } else {
         setMessage(data.message || 'Registration failed. Please try again.');
       }

@@ -86,7 +86,9 @@ const Treatment = () => {
 
     return (
       <div className ='fullpage' style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyItems: 'center'}}>
-
+        <header>
+          <h1>Treatment</h1>
+        </header>
         {/* patient card */}
 
         <div className='treatment-card' style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', margin: 'auto', width: 'auto', paddingBottom: '20px'}}>
